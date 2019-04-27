@@ -81,40 +81,24 @@ If run interactively, get ENTRY from context."
   :when (featurep! :editor evil +everywhere)
   :hook (org-mode . evil-org-mode)
   :init
-  (defvar evil-org-key-theme '(navigation
+  (setq evil-org-key-theme '(navigation
                              shift
                              todo
                              additional
                              operators
                              insert
                              textobjects))
-  (defvar evil-org-special-o/O '(table-row))
-  (defvar evil-org-want-hybrid-shift t)
-  (defvar evil-org-use-additional-insert nil)
   (add-hook 'org-load-hook #'+org-private|setup-keybinds t)
   (add-hook 'evil-org-mode-hook #'evil-normalize-keymaps)
-  (advice-add 'evil-org-open-below :override #'+org-private*evil-org-open-below)
-
-  :config
-  (setq evil-org-retain-visual-state-on-shift t)
-  ;; change `evil-org-key-theme' instead
-  (advice-add #'evil-org-set-key-theme :override #'ignore)
-  (def-package! evil-org-agenda
-    :after org-agenda
-    :config (evil-org-agenda-set-keys)))
-
-
-
-
+  )
 ;;
 ;; Bootstrap
 ;;
 
-(add-hook 'org-load-hook #'+org-private|setup-ui t)
-(add-hook 'org-load-hook #'+org-private|setup-agenda t)
-(add-hook 'org-load-hook #'+org-private|setup-overrides t)
-
-
+(after! org
+  (+org-private|setup-ui)
+  (+org-private|setup-agenda)
+  (+org-private|setup-overrides))
 
 
 (remove-hook! 'org-mode-hook #'(visual-line-mode
