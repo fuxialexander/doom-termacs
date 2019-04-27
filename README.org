@@ -1,0 +1,17 @@
+#+TITLE: fuxialexander's doom-emacs inside Termux!
+A doom-emacs secret garden in Android.
+
+* Getting start
+Simply clone both ~doom-emacs~ and my config
+#+BEGIN_SRC bash
+git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
+cd ~/.emacs.d && git checkout develop
+git clone https://github.com/fuxialexander/doom-termacs-private-xfu ~/.doom.d
+#+END_SRC
+
+And use ~doom~ to install the packages, etc.
+#+BEGIN_SRC bash
+export PATH="~/.emacs.d/bin:$PATH" # You can add that to your ~/.*shrc
+doom install
+#+END_SRC
+
