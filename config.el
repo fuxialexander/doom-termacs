@@ -23,14 +23,7 @@
       evil-escape-key-sequence nil
       line-spacing nil
       frame-resize-pixelwise t)
-(when IS-WINDOWS
-  (setq bibtex-completion-bibliography '("c:/Users/xfu/Dropbox/org/reference/Bibliography.bib")
-        bibtex-completion-library-path "c:/Users/xfu/Dropbox/org/reference/pdf/"
-        bibtex-completion-notes-path "c:/Users/xfu/Dropbox/org/ref.org"
-        org-directory "c:/Users/xfu/Dropbox/org"
-        org-ref-default-bibliography '("c:/Users/xfu/Dropbox/org/reference/Bibliography.bib")
-        org-ref-bibliography-notes "c:/Users/xfu/Dropbox/org/ref.org"
-        org-ref-pdf-directory "c:/Users/xfu/Dropbox/org/reference/pdf/"))
+
 (add-hook! minibuffer-setup (setq-local show-trailing-whitespace nil))
 (remove-hook 'text-mode-hook #'hl-line-mode)
 (remove-hook 'conf-mode-hook #'hl-line-mode)
@@ -202,8 +195,7 @@
   (add-hook 'comint-preoutput-filter-functions #'dirtrack-filter-out-pwd-prompt))
 ;; ** edit
 ;; *** company
-(after! company-box
-  (setq company-box-max-candidates 10))
+
 (after! company
   ;; **** prescient
   (def-package! company-prescient
@@ -239,10 +231,7 @@
 ;; **** sed
 (def-package! sed-mode
   :commands (sed-mode))
-;; **** pkgbuild
-(when IS-LINUX
-  (def-package! pkgbuild-mode
-    :mode (("/PKGBUILD$" . pkgbuild-mode))))
+
 ;; *** yasnippet
 (def-package! ivy-yasnippet
   :commands (ivy-yasnippet))
@@ -360,20 +349,11 @@
            "ftp_proxy=http://proxy.cse.cuhk.edu.hk:8000"))))
 ;; ** loading
 (load! "+bindings")
-;(load! "+popup")
-;(load! "+idle")
 ;; ** hacks
 (add-to-list '+doom-solaire-themes '(doom-modern-dark . t))
 
-(when IS-LINUX
-  (setq conda-anaconda-home "/opt/miniconda3"))
 
 (def-package! org-kanban
   :commands (org-kanban/initialize-at-end))
 
 (add-hook! :append 'doom-load-theme-hook (load! "+themes"))
-
-;; *** pdf-tools
-(after! pdf-view
-  (advice-add 'pdf-view-mouse-set-region :override #'*pdf-view-mouse-set-region))
-
