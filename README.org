@@ -6,7 +6,7 @@ Simply clone both ~doom-emacs~ and my config
 #+BEGIN_SRC bash
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 cd ~/.emacs.d && git checkout develop
-git clone https://github.com/fuxialexander/doom-termacs-private-xfu ~/.doom.d
+git clone https://github.com/fuxialexander/doom-termacs ~/.doom.d
 #+END_SRC
 
 And use ~doom~ to install the packages, etc.
