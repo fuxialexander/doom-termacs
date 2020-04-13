@@ -4,25 +4,41 @@
        ivy
 
        :ui
-       workspaces
+       (popup +all +defaults)
+       vc-gutter
        doom
        doom-dashboard
-       modeline
        hl-todo
-       nav-flash
+       hydra
+       modeline
        ophints
+       treemacs
        window-select
+       workspaces
+       zen
+
        :editor
-       (evil
-        +everywhere)
+       (evil +commands +everywhere)
+       file-templates
+       fold
+       (format +onsave)
+       lispy
+       multiple-cursors
+       rotate-text
+       snippets
+       word-wrap
+
        :emacs
-       vc
        dired
+       dired-plugins
        electric
-       imenu
+       ibuffer
+       vc
 
        :tools
+       (eval +overlay)
        magit
+
        :lang
        (org
         +dragndrop
@@ -31,11 +47,6 @@
        emacs-lisp
        markdown
        sh
-
-       :app
-       (write
-        +wordnut
-        +synosaurus)
 
        :config
        (default +snippets +bindings +commands))

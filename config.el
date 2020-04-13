@@ -194,9 +194,6 @@
 (after! helpful
   (set-lookup-handlers! 'helpful-mode :documentation #'helpful-at-point))
 
-;; *** yasnippet
-(def-package! ivy-yasnippet
-  :commands (ivy-yasnippet))
 ;; *** evil
 (after! evil-mc
   ;; Make evil-mc resume its cursors when I switch to insert mode
