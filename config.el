@@ -253,3 +253,5 @@
               inferior-python-mode
               inferior-ess-mode)
     #'yas-minor-mode-on))
+
+(load! "+bindings")
